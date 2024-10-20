@@ -15,7 +15,8 @@ INNER JOIN sakila.customer cr on cr.store_id = s.store_id
 INNER JOIN sakila.address a on a.address_id = s.address_id
 INNER JOIN sakila.city cy on cy.city_id = a.city_id
 GROUP BY sf.staff_id, cy.city_id
-HAVING COUNT(cr.customer_id) > 300;```
+HAVING COUNT(cr.customer_id) > 300;
+```
 
 
 ![alt text](https://github.com/bris91/12-04/blob/437abfb6be832c7df463c2dd81fdff3b9d9e59e5/1.png)
@@ -28,7 +29,8 @@ HAVING COUNT(cr.customer_id) > 300;```
 
 ```SELECT COUNT(f.title)
 FROM sakila.film f  
-WHERE f.`length` > (SELECT AVG(`length`) FROM sakila.film);```
+WHERE f.`length` > (SELECT AVG(`length`) FROM sakila.film);
+```
 
 ![alt text](https://github.com/bris91/12-04/blob/437abfb6be832c7df463c2dd81fdff3b9d9e59e5/2.png)
 
@@ -40,6 +42,7 @@ WHERE f.`length` > (SELECT AVG(`length`) FROM sakila.film);```
 FROM sakila.payment
 GROUP BY DATE_FORMAT(payment_date, '%Y-%m')
 ORDER BY SUM(amount) DESC
-LIMIT 1;```
+LIMIT 1;
+```
 
 ![alt text](https://github.com/bris91/12-04/blob/437abfb6be832c7df463c2dd81fdff3b9d9e59e5/3.png)
