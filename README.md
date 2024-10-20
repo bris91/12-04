@@ -8,7 +8,8 @@
 город нахождения магазина;
 количество пользователей, закреплённых в этом магазине.
 
-```SELECT concat(sf.first_name , ' ', sf.last_name) AS 'Full Name', cy.city, COUNT(cr.customer_id) AS 'Count Consumers'        
+```
+SELECT concat(sf.first_name , ' ', sf.last_name) AS 'Full Name', cy.city, COUNT(cr.customer_id) AS 'Count Consumers'        
 FROM sakila.store s
 INNER JOIN sakila.staff sf on sf.store_id = s.store_id
 INNER JOIN sakila.customer cr on cr.store_id = s.store_id
@@ -27,7 +28,8 @@ HAVING COUNT(cr.customer_id) > 300;
 # Задание 2
 Получите количество фильмов, продолжительность которых больше средней продолжительности всех фильмов.
 
-```SELECT COUNT(f.title)
+```
+SELECT COUNT(f.title)
 FROM sakila.film f  
 WHERE f.`length` > (SELECT AVG(`length`) FROM sakila.film);
 ```
@@ -38,7 +40,8 @@ WHERE f.`length` > (SELECT AVG(`length`) FROM sakila.film);
 # Задание 3
 Получите информацию, за какой месяц была получена наибольшая сумма платежей, и добавьте информацию по количеству аренд за этот месяц.
 
-```SELECT SUM(amount) Платеж, DATE_FORMAT(payment_date, '%Y-%m') Месяц, COUNT(rental_id) Количество_аренд
+```
+SELECT SUM(amount) Платеж, DATE_FORMAT(payment_date, '%Y-%m') Месяц, COUNT(rental_id) Количество_аренд
 FROM sakila.payment
 GROUP BY DATE_FORMAT(payment_date, '%Y-%m')
 ORDER BY SUM(amount) DESC
